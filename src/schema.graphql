@@ -1,0 +1,122 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Product {
+  id: ID!
+  name: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Car {
+  id: ID!
+  brand: String!
+  model: String!
+  color: String!
+  year: Int!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type Shirt {
+  id: ID!
+  size: AllowedSize!
+  color: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+enum AllowedSize {
+  SMALL
+  MEDIUM
+  LARGE
+}
+
+type Speaker {
+  id: ID!
+  brand: String!
+  model: String!
+  power: Int!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type Query {
+  products: [Product!]!
+  product(id: ID!): Product!
+  cars: [Car!]!
+  car(id: ID!): Car!
+  shirts: [Shirt!]!
+  shirt(id: ID!): Shirt!
+  speakers: [Speaker!]!
+  speaker(id: ID!): Speaker!
+}
+
+type Mutation {
+  createProduct(createProductInput: CreateProductInput!): Product!
+  updateProduct(updateProductInput: UpdateProductInput!): Product!
+  removeProduct(id: ID!): Product!
+  createCar(createCarInput: CreateCarInput!): Car!
+  updateCar(updateCarInput: UpdateCarInput!): Car!
+  removeCar(id: ID!): Car!
+  createShirt(createShirtInput: CreateShirtInput!): Shirt!
+  updateShirt(updateShirtInput: UpdateShirtInput!): Shirt!
+  removeShirt(id: ID!): Shirt!
+  createSpeaker(createSpeakerInput: CreateSpeakerInput!): Speaker!
+  updateSpeaker(updateSpeakerInput: UpdateSpeakerInput!): Speaker!
+  removeSpeaker(id: ID!): Speaker!
+}
+
+input CreateProductInput {
+  name: String!
+}
+
+input UpdateProductInput {
+  name: String
+  id: ID!
+}
+
+input CreateCarInput {
+  brand: String!
+  model: String!
+  color: String!
+  year: Int!
+}
+
+input UpdateCarInput {
+  brand: String
+  model: String
+  color: String
+  year: Int
+  id: ID!
+}
+
+input CreateShirtInput {
+  size: AllowedSize!
+  color: String!
+}
+
+input UpdateShirtInput {
+  size: AllowedSize
+  color: String
+  id: ID!
+}
+
+input CreateSpeakerInput {
+  brand: String!
+  model: String!
+  power: Int!
+}
+
+input UpdateSpeakerInput {
+  brand: String
+  model: String
+  power: Int
+  id: ID!
+}

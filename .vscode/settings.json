@@ -1,0 +1,11 @@
+{
+  "sqltools.connections": [
+    {
+      "previewLimit": 50,
+      "driver": "SQLite",
+      "name": "Nest JS",
+      "database": "\\\\wsl$\\Ubuntu-20.04\\home\\alex\\nest-service\\src\\database"
+    }
+  ],
+  "sqltools.useNodeRuntime": true
+}
