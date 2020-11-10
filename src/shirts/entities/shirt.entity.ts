@@ -4,7 +4,6 @@ import {
   PrimaryGeneratedColumn,
   CreateDateColumn,
   UpdateDateColumn,
-  ManyToOne,
 } from "typeorm";
 import { ObjectType, Field, ID, registerEnumType } from "@nestjs/graphql";
 
