@@ -3,7 +3,6 @@ import { GraphQLModule } from "@nestjs/graphql";
 import { TypeOrmModule } from "@nestjs/typeorm";
 import { join } from "path";
 import { ConfigModule } from "@nestjs/config";
-import { ProductsModule } from "./products/products.module";
 import { CarsModule } from "./cars/cars.module";
 import { ShirtsModule } from "./shirts/shirts.module";
 import { SpeakersModule } from "./speakers/speakers.module";
@@ -22,7 +21,6 @@ import { SpeakersModule } from "./speakers/speakers.module";
       debug: false,
       playground: true,
     }),
-    ProductsModule,
     CarsModule,
     ShirtsModule,
     SpeakersModule,

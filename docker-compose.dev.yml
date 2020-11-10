@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  web:
+    build: 
+      context: ./angular-crud
+      dockerfile: Dockerfile
+    container_name: angular-crud
+    ports:
+        - "80:80"
+  server:
+    build: 
+      context: ./nest-service/
+      dockerfile: Dockerfile
+    container_name: nest-service  
+    ports:
+        - "3000:3000"
+    environment:
+        - NODE_ENV=production
