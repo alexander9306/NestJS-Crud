@@ -6,14 +6,15 @@ import { AllowedSize } from "./entities/shirt.entity";
 describe("ShirtsResolver", () => {
   let resolver: ShirtsResolver;
 
-  const mockShirtsService = {
-    async create() {
+  const mockShirtsService: Partial<ShirtsService> = {
+    async create(shirt) {
+      const date = new Date("2020-11-10T16:15:41.030Z");
       return {
         id: "1",
-        size: AllowedSize.SMALL,
-        color: "red",
-        createdAt: new Date(),
-        updatedAt: new Date(),
+        size: shirt.size,
+        color: shirt.color,
+        createdAt: date,
+        updatedAt: date,
       };
     },
   };
@@ -31,5 +32,21 @@ describe("ShirtsResolver", () => {
 
   it("should be defined", () => {
     expect(resolver).toBeDefined();
+  });
+
+  it("should return the created shirt with the same Size", async () => {
+    const result = await resolver.createShirt({
+      size: AllowedSize.SMALL,
+      color: "white",
+    });
+    expect(result.size).toBe(AllowedSize.SMALL);
+  });
+
+  it("should return the created shirt with the same Color", async () => {
+    const result = await resolver.createShirt({
+      size: AllowedSize.SMALL,
+      color: "white",
+    });
+    expect(result.color).toBe("white");
   });
 });
